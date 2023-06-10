@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-sentry-test",
+  "packageManager": "yarn@3.5.1",
+  "scripts": {
+    "start": "nodemon dist/index.js",
+    "tsc-dev": "tsc -w",
+    "build": "tsc",
+    "up-sourcemaps": "sentry-cli sourcemaps inject dist && sentry-cli sourcemaps upload --release=1.0 dist",
+    "watch": "watch 'yarn up-sourcemaps' --ignoreDirectoryPattern=/node_modules/"
+  },
+  "dependencies": {
+    "@sentry/cli": "^2.18.1",
+    "@sentry/node": "^7.54.0",
+    "@sentry/profiling-node": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.6",
+    "nodemon": "^2.0.22",
+    "typescript": "^5.1.3",
+    "watch": "^1.0.2"
+  }
+}
